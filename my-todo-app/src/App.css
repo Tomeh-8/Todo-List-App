@@ -2,14 +2,22 @@
  margin:0;
  padding: 0;
  box-sizing: border-box;
+ font-family: 'Poppins', sans-serif;
 
 }
 
 body{
-  width: 60%;
   max-height: 100vh;
-  margin: 100px auto;
-  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(todo.jpg);
+  background: linear-gradient(#f64c72,rgba(0,0,0,0.9)),url(todo.jpg);
   background-position: center;
   background-size: cover;
+}
+
+.App{
+  background-color: #242582;
+  min-height: 400px;
+  width: 500px;
+  padding: 20px;
+  margin: 100px auto;
+  border-radius: 10px ;
 }
