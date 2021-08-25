@@ -1,34 +1,25 @@
 import React, { Component } from 'react'
 
 export class AddTask extends Component {
-    state = {
-        task: ""
-    }
 
-    inputChange = (e) => {
-        return this.setState({task: e.target.value});
-    }
-
-    submitForm = (e) => {
-         e.preventDefault();
-        if(this.state.task !== "")  {this.props.addTask(this.state.task);
-         this.setState({task: ""});
-        }
-    }
+    
+   
 
     render() {
         return (
             <div>
-                <form style = {formStyle} onSubmit = {this.submitForm}>
+                <form style = {formStyle} onSubmit = {this.props.submitForm} className= "AddInput">
                     <input style ={inputStyle}
                     type = "text" 
                     placeholder = " Enter Task..." 
-                    onChange = {this.inputChange}
-                    addTask = {this.addTask}
-                    value = {this.state.task}
+                    onChange = {this.props.inputChange}
+                    value =  {this.props.task}
+                    className= "input"
+                    required
                     />
                    
                     <input style ={submitStyle}
+                     className= "submit"
                      type="submit"
                      value = "Add Task"/>
                 </form>
@@ -40,21 +31,20 @@ export class AddTask extends Component {
 const formStyle = {
     display: "flex",
     height: "40px",
-    marginBottom: "10px",
-    justifyContent: "space-between"
+    marginBottom: "10px"
 }
 
 const inputStyle ={
-    flexBasis: "79%",
     border: "solid 1px #2f2fa2 ",
     borderRadius:"10px",
     outline: "none",
     color: "#2f2fa2",
     fontFamily: 'sans-serif',
-    fontSize: "15px"
+    fontSize: "17px",
+    flex: "10",
+    width: "100%"
 }
 const submitStyle ={
-    flexBasis: "20%",
     fontFamily: 'sans-serif',
     backgroundColor: "#2f2fa2",
     border: "solid 1px #333",
@@ -63,7 +53,8 @@ const submitStyle ={
     fontSize: "15px",
     cursor: "pointer",
     padding: "10px",
-    outline: "none"
+    outline: "none",
+    flex: "1"
 }
 
 export default AddTask

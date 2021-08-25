@@ -10,6 +10,7 @@ export class Tasks extends Component {
                todo={todo}
                changeCompleted = {this.props.changeCompleted}
                delTask = {this.props.delTask}
+               editTask = {this.props.editTask}
                /></h3>
         });
     }

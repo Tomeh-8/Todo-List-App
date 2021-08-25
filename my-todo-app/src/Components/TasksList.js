@@ -8,12 +8,13 @@ export class TasksList extends Component {
             backgroundColor:"#2f2fa2",
             border: "solid 1px #242582",
             borderRadius: "5px",
-            height: "50px",
+            minHeight: "50px",
             padding: "10px",
             marginBottom: "4px",
             color: "#fff",
             fontSize: "18px",
-            textDecoration: this.props.todo.completed? "line-through" : "none"
+            textDecoration: this.props.todo.completed? "line-through" : "none",
+            overflow: "hidden"
         }
         
     }
@@ -22,31 +23,57 @@ export class TasksList extends Component {
         return (
             <div>
                 <div style = {this.TrackListStyle()}>
-                <p><input style = {styleCheck} type="checkbox" onChange = {this.props.changeCompleted.bind(this,id)} />
+                <p><input style = {styleCheck} type="checkbox" onChange = {this.props.changeCompleted.bind(this,id)}  required/>
                  {"  "}
-                 {task}
-                  <button style = {styleButton} onClick = {this.props.delTask.bind(this,id)}>x</button></p>
+                 <span style = {styleText}>{task}</span>
+                  <div style = {styleItem}>
+                  <button style = {styleDelete} onClick = {this.props.delTask.bind(this,id)}>
+                      <i className="fa fa-trash"></i></button>
+                  <button style = {styleEdit} onClick = {this.props.editTask.bind(this,id)}>
+                  <i className="fa fa-pencil" ></i>
+                  </button>
+                  </div>
+                  </p>
                  </div>
             </div>
         )
     }
 }
 
-const styleButton = {
+const styleItem = {
+    float:"right"
+}
+
+const styleDelete = {
     fontSize: "20px",
     height: "30px",
     width: "30px",
-    float: "right",
     cursor: "pointer",
     backgroundColor: "#2f2582",
     borderRadius: "50%",
     outline: "none",
     border: "none",
-    color: "#f64c72"
+    color: "#f64c72",
+}
+
+const styleEdit = {
+    fontSize: "20px",
+    height: "30px",
+    width: "30px",
+    cursor: "pointer",
+    backgroundColor: "#2f2582",
+    borderRadius: "50%",
+    outline: "none",
+    border: "none",
+    color: "yellow",
 }
 
 const styleCheck = {
  cursor: "pointer"
+}
+
+const styleText = {
+    overflow: "hidden"
 }
 
 export default TasksList

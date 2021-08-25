@@ -3,21 +3,32 @@
  padding: 0;
  box-sizing: border-box;
  font-family: 'Poppins', sans-serif;
-
 }
 
 body{
-  max-height: 100vh;
-  background: linear-gradient(#f64c72,rgba(0,0,0,0.9)),url(todo.jpg);
+  min-height: 100vh;
+  background: linear-gradient(rgba(96,29,44,0.9),rgba(0,0,0,0.9)),url(todo.jpg);
   background-position: center;
   background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App{
   background-color: #242582;
   min-height: 400px;
-  width: 500px;
+  min-width: 500px;
   padding: 20px;
-  margin: 100px auto;
-  border-radius: 10px ;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px)  {
+
+  .App {
+    min-width: 400px;
+  }
 }
